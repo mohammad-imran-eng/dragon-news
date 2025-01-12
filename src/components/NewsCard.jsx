@@ -1,9 +1,10 @@
 
 import React from 'react';
 import { FaEye, FaShareAlt } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const NewsCard = ({ singleNews }) => {
-    console.log(singleNews);
+    
     
   return (
         <div className="card w-full bg-base-100 shadow-lg mb-5">
@@ -25,8 +26,9 @@ const NewsCard = ({ singleNews }) => {
         </div>
         <h2 className="card-title text-lg font-bold">{singleNews.title}</h2>
         <p className="text-sm text-gray-600">
-          {singleNews.details.length > 100 ? `${singleNews.details.substring(0, 100)}...` : singleNews.details}
+          {singleNews.details.length > 100 ? `${singleNews.details.substring(0, 200)}...` : singleNews.details}
         </p>
+        <Link to={`/news/${singleNews._id}`} className='font-semibold text-blue-600'>Read More</Link>
         <div className="card-actions mt-4 justify-between">
           <div className="flex items-center space-x-1 text-yellow-500">
             <span className="text-xl font-bold">{singleNews.rating.number}</span>
